@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "example-package"
-version = "0.1.0"
+version = "0.0.0"
 description = "Example python project"
 authors = ["Zackarie Vinckier <zackarie.vinckier--coffinier@eviden.com>"]
-license = "The UNLICENCE"
+license = "The Unlicence"
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -16,3 +16,58 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 hello = "example_package.hello:main"
+
+[tool.semantic_release]
+logging_use_named_masks = true
+tag_format = "v{version}"
+commit_parser = "angular"
+# commit_author = "semantic-release <semantic-release>"
+commit_message = "chore(semver): Update version to {version}"
+build_command = """
+    python3 -m pip install poetry  \
+    && python3 -m poetry --version \
+    && python3 -m poetry build
+"""
+major_on_zero = true
+assets = []
+version_variables = ["semantic_release/__init__.py:__version__"]
+version_toml = ["pyproject.toml:project.version"]
+
+[tool.semantic_release.changelog]
+template_dir = "templates"
+changelog_file = "CHANGELOG.md"
+exclude_commit_patterns = []
+
+[tool.semantic_release.changelog.environment]
+block_start_string = "{%"
+block_end_string = "%}"
+variable_start_string = "{{"
+variable_end_string = "}}"
+comment_start_string = "{#"
+comment_end_string = "#}"
+trim_blocks = false
+lstrip_blocks = false
+newline_sequence = "\n"
+keep_trailing_newline = false
+extensions = []
+autoescape = true
+
+[tool.semantic_release.branches.main]
+match = "(main|master)"
+prerelease = false
+prerelease_token = "rc"
+
+[tool.semantic_release.branches."dev"]
+match = "*dev*"
+prerelease = true
+prerelease_token = "dev"
+
+[tool.semantic_release.remote]
+name = "origin"
+type = "github"
+ignore_token_for_push = false
+token = { env = "GH_TOKEN" }
+
+[tool.semantic_release.publish]
+dist_glob_patterns = ["dist/*"]
+upload_to_vcs_release = true

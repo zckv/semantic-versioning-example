@@ -21,6 +21,7 @@ jobs:
       id: release
       uses: python-semantic-release/python-semantic-release@master
       with:
+        changelog: false
         github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Publish package distributions to GitHub Releases
       uses: python-semantic-release/upload-to-gh-release@main
