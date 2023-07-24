@@ -15,6 +15,7 @@ jobs:
     concurrency: release
     permissions:
       id-token: write
+      contents: write
 
     steps:
     - uses: actions/checkout@v3
@@ -26,6 +27,7 @@ jobs:
       with:
         changelog: false
         github_token: ${{ secrets.PAT_TOKEN }}
+        root_options: -vv
     - name: Publish package distributions to GitHub Releases
       uses: python-semantic-release/upload-to-gh-release@main
       if: steps.release.outputs.released == 'true'
