@@ -27,9 +27,10 @@ jobs:
       with:
         changelog: false
         github_token: ${{ secrets.PAT_TOKEN }}
-        root_options: -vv
+        root_options: -v
     - name: Publish package distributions to GitHub Releases
       uses: python-semantic-release/upload-to-gh-release@main
       if: steps.release.outputs.released == 'true'
       with:
         github_token: ${{ secrets.PAT_TOKEN }}
+        root_options: -vv
