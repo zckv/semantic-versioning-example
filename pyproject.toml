@@ -31,43 +31,6 @@ build_command = """
 major_on_zero = true
 assets = []
 version_variables = ["src/example_package/__init__.py:__version__"]
-version_toml = ["pyproject.toml:project.version"]
+version_toml = ["pyproject.toml:tool.poetry.version"]
 
-[tool.semantic_release.changelog]
-template_dir = "templates"
-changelog_file = "CHANGELOG.md"
-exclude_commit_patterns = []
 
-[tool.semantic_release.changelog.environment]
-block_start_string = "{%"
-block_end_string = "%}"
-variable_start_string = "{{"
-variable_end_string = "}}"
-comment_start_string = "{#"
-comment_end_string = "#}"
-trim_blocks = false
-lstrip_blocks = false
-newline_sequence = "\n"
-keep_trailing_newline = false
-extensions = []
-autoescape = true
-
-[tool.semantic_release.branches.main]
-match = "(main|master)"
-prerelease = false
-prerelease_token = "rc"
-
-[tool.semantic_release.branches."dev"]
-match = "*dev*"
-prerelease = true
-prerelease_token = "dev"
-
-[tool.semantic_release.remote]
-name = "origin"
-type = "github"
-ignore_token_for_push = false
-token = { env = "GH_TOKEN" }
-
-[tool.semantic_release.publish]
-dist_glob_patterns = ["dist/*"]
-upload_to_vcs_release = true
