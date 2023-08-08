@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "example-package"
-version = "0.1.0"
+version = "0.2.0"
 description = "Example python project"
 authors = ["Zackarie Vinckier <zackarie.vinckier--coffinier@eviden.com>"]
 license = "The Unlicence"
