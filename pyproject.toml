@@ -18,21 +18,10 @@ build-backend = "poetry.core.masonry.api"
 hello = "example_package.hello:main"
 
 [tool.semantic_release]
-logging_use_named_masks = true
-tag_format = "v{version}"
-commit_parser = "angular"
-# commit_author = "semantic-release <semantic-release>"
-commit_message = "chore(semver): Update version to {version}"
-build_command = """
-    python3 -m pip install poetry  \
-    && python3 -m poetry --version \
-    && python3 -m poetry build
-"""
-major_on_zero = true
-assets = []
+commit_subject = "chore(semver): Update version to {version}"
 #version_variables = ["src/example_package/__init__.py:__version__"]
 version_pattern = [
-    'src/example_package/__init__.py:__version__ = "{version}"'
+    'src/example_package/__init__.py:__version__ = "{version}"',
 ]
 version_toml = ["pyproject.toml:tool.poetry.version"]
 
