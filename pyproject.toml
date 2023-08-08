@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "example-package"
-version = "0.0.0"
+version = "0.1.0"
 description = "Example python project"
 authors = ["Zackarie Vinckier <zackarie.vinckier--coffinier@eviden.com>"]
 license = "The Unlicence"
@@ -30,7 +30,10 @@ build_command = """
 """
 major_on_zero = true
 assets = []
-version_variables = ["src/example_package/__init__.py:__version__"]
+#version_variables = ["src/example_package/__init__.py:__version__"]
+version_pattern = [
+    'src/example_package/__init__.py:__version__ = "{version}"'
+]
 version_toml = ["pyproject.toml:tool.poetry.version"]
 
 
