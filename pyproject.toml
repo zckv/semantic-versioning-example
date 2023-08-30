@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "example-package"
-version = "0.0.0"
+version = "0.3.0"
 description = "Example python project"
 authors = ["Zackarie Vinckier <zackarie.vinckier--coffinier@eviden.com>"]
 license = "The Unlicence"
@@ -23,11 +23,6 @@ tag_format = "v{version}"
 commit_parser = "angular"
 # commit_author = "semantic-release <semantic-release>"
 commit_message = "chore(semver): Update version to {version}"
-build_command = """
-    python3 -m pip install poetry  \
-    && python3 -m poetry --version \
-    && python3 -m poetry build
-"""
 major_on_zero = true
 assets = []
 version_variables = ["src/example_package/__init__.py:__version__"]
