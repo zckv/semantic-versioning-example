@@ -1,2 +1,2 @@
 # src/example_package/__init__.py
-__version__ = "0.3.0"
+__version__ = "0.4.0"
