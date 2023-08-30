@@ -1,2 +1,2 @@
 # semantic-versioning-example
-Use github actions for semantic versioning
+Use github actions for semantic release
