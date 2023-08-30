@@ -2,7 +2,14 @@
 
 
 
+## v0.6.0 (2023-08-30)
+
+
 ## v0.5.0 (2023-08-30)
+
+### Chore
+
+* chore(semver): Update version to 0.5.0 ([`3706a7f`](https://github.com/zckv/semantic-versioning-example/commit/3706a7f52e6d54aef3476886a1f6e8c3de5a12c4))
 
 
 ## v0.4.0 (2023-08-30)
