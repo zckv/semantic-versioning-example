@@ -30,9 +30,10 @@ jobs:
         root_options: -v
     - name: Add file to check if it is added
       run: echo "Hello World !" >> dist/hello.txt
-    - name: Publish package distributions to GitHub Releases
+    - name: Publish package to GitHub Release
       uses: python-semantic-release/upload-to-gh-release@main
-      if: steps.release.outputs.released
+      if: ${{ steps.release.outputs.released }} == 'true'
       with:
-        github_token: ${{ secrets.PAT_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        tag: ${{ steps.release.outputs.tag }}
         root_options: -vv
