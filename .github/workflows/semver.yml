@@ -28,6 +28,8 @@ jobs:
         changelog: false
         github_token: ${{ secrets.PAT_TOKEN }}
         root_options: -v
+    - name: Add file to check if it is added
+      run: echo "Hello World !" >> dist/hello.txt
     - name: Publish package distributions to GitHub Releases
       uses: python-semantic-release/upload-to-gh-release@main
       if: steps.release.outputs.released == 'true'
