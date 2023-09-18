@@ -55,7 +55,6 @@ prerelease_token = "rc"
 [tool.semantic_release.branches."dev"]
 match = "*dev*"
 prerelease = true
-prerelease_token = "dev"
 
 [tool.semantic_release.remote]
 name = "origin"
