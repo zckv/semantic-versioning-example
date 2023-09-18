@@ -53,7 +53,7 @@ prerelease = false
 prerelease_token = "rc"
 
 [tool.semantic_release.branches."dev"]
-match = "*dev*"
+match = "dev*"
 prerelease = true
 
 [tool.semantic_release.remote]
