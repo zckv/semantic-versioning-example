@@ -29,6 +29,10 @@ jobs:
         github_token: ${{ secrets.PAT_TOKEN }}
         root_options: -v
     - name: Add file to check if it is added
+      env: 
+        tag: ${{ steps.release.outputs.tag }}
+        released: ${{ steps.release.outputs.released }}
+        version: ${{ steps.release.outputs.version }}
       run: echo "Hello World !" >> dist/hello.txt
     - name: Publish package to GitHub Release
       uses: python-semantic-release/upload-to-gh-release@main
