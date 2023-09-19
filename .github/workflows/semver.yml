@@ -31,6 +31,7 @@ jobs:
         github_token: ${{ secrets.PAT_TOKEN }}
         root_options: -v
     - name: Add file to check if it is added
+      if: steps.release.outputs.released
       env: 
         tag: ${{ steps.release.outputs.tag }}
         released: ${{ steps.release.outputs.released }}
