@@ -23,8 +23,9 @@ jobs:
         fetch-depth: 0
     - name: Python Semantic Release
       id: release
-      uses: python-semantic-release/python-semantic-release@v8.0.8
+      # uses: python-semantic-release/python-semantic-release@v8.0.8
       # uses: zckv/python-semantic-release@switch_to_a_composite_action
+      uses: zckv/python-semantic-release@fix_try_thing
       with:
         changelog: false
         github_token: ${{ secrets.PAT_TOKEN }}
