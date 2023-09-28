@@ -3,6 +3,7 @@
 
 def main():
     print("Hello World !")
+    print("Update this line and bump version !")
 
 if __name__ == "__main__":
     main()
