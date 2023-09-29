@@ -41,9 +41,11 @@ jobs:
       run: mkdir -p dist && echo "Hello World !" >> dist/hello.txt
     - name: Debug GITHUB_ACTION
       run: |
+        ls -la
         echo "test_variable=test" >> $GITHUB_ACTION
+        ls -la
         echo "Content of $GITHUB_ACTION file:"
-        cat __run
+        cat "$GITHUB_ACTION"
         echo "Debug EOF"
     - name: Publish package to GitHub Release
       uses: python-semantic-release/upload-to-gh-release@main
