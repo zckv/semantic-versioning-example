@@ -61,6 +61,10 @@ prerelease_token = "rc"
 match = "dev*"
 prerelease = true
 
+[tool.semantic_release.branches.publish]
+match = "publish"
+prerelease = true
+
 [tool.semantic_release.remote]
 name = "origin"
 type = "github"
