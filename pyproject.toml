@@ -54,11 +54,6 @@ autoescape = true
 
 [tool.semantic_release.branches.main]
 match = "(main|master)"
-prerelease = true
-prerelease_token = "rc"
-
-[tool.semantic_release.branches.releases]
-match = "^v[0-9]+\.[0-9]+\.[0-9]+$"
 prerelease = false
 
 [tool.semantic_release.remote]
