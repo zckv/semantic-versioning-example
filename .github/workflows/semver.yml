@@ -12,11 +12,13 @@ env:
 jobs:
   release:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        psr-version: ["7.34.6", "8.7.2", "9.15.2"]
     concurrency: release
     permissions:
       id-token: write
       contents: write
-
     steps:
     - uses: actions/checkout@v3
       with:
@@ -26,12 +28,14 @@ jobs:
         echo "GITHUB_ACTION is $GITHUB_ACTION"
     - name: Python Semantic Release
       id: release
-      # uses: python-semantic-release/python-semantic-release@v8.0.8
       uses: zckv/python-semantic-release-composite-action@dev
       with:
         changelog: false
         github_token: ${{ secrets.PAT_TOKEN }}
         root_options: -v
+        psr_version:  ${{ matrix.psr-version }}
+        commit: true
+        push: ${{ matrix.psr-version == "8.7.2" }}
     - name: Add file to check if it is added
       env: 
         tag: ${{ steps.release.outputs.tag }}
