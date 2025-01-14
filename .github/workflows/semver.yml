@@ -35,7 +35,7 @@ jobs:
         root_options: -v
         psr_version:  ${{ matrix.psr-version }}
         commit: true
-        push: ${{ matrix.psr-version == "8.7.2" }}
+        push: ${{ matrix.psr-version == '8.7.2' }}
     - name: Add file to check if it is added
       env: 
         tag: ${{ steps.release.outputs.tag }}
