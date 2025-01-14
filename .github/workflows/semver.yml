@@ -14,8 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        psr-version: ["7.34.6", "8.7.2", "9.15.2"]
-    concurrency: release
+        psr-version: ["8.7.2", "9.15.2"]
     permissions:
       id-token: write
       contents: write
