@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        psr-version: ["8.7.2", "9.15.2"]
+        psr-version: ["8.7.0", "9.16.1"]
     permissions:
       id-token: write
       contents: write
@@ -53,6 +53,6 @@ jobs:
       uses: python-semantic-release/upload-to-gh-release@main
       if: steps.release.outputs.released
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.PAT_TOKEN }}
         tag: ${{ steps.release.outputs.tag }}
         root_options: -vv
