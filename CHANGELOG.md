@@ -2,9 +2,18 @@
 
 
 
+## v0.8.0 (2025-01-16)
+
+### Fix
+
+* fix: correct commit author ([`f04542b`](https://github.com/zckv/semantic-versioning-example/commit/f04542b3d6c7ded5248ebe1d8fae064e47bd8186))
+
+
 ## v0.8.0-rc.2 (2025-01-16)
 
 ### Chore
+
+* chore(semver): Update version to 0.8.0-rc.2 ([`372c616`](https://github.com/zckv/semantic-versioning-example/commit/372c61698f9b4c5e5d4cb1737c29ad3d13739b9c))
 
 * chore: use right versions ([`edfc7a0`](https://github.com/zckv/semantic-versioning-example/commit/edfc7a0b1e81070040e1970df8a4e031625e159c))
 
