@@ -21,7 +21,7 @@ hello = "example_package.hello:main"
 logging_use_named_masks = true
 tag_format = "v{version}"
 commit_parser = "angular"
-# commit_author = "semantic-release <semantic-release>"
+commit_author = "github-actions <action@github.com>"
 commit_message = "chore(semver): Update version to {version}"
 build_command = """
     python -m pip install poetry
