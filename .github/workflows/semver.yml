@@ -19,7 +19,7 @@ jobs:
       id-token: write
       contents: write
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
     - name: Debug GITHUB_ACTION
@@ -27,28 +27,20 @@ jobs:
         echo "GITHUB_ACTION is $GITHUB_ACTION"
     - name: Python Semantic Release
       id: release
-      uses: zckv/python-semantic-release-composite-action@dev
+      uses: zckv/python-semantic-release-composite-action@v0
       with:
-        changelog: false
+        changelog: true
         github_token: ${{ secrets.PAT_TOKEN }}
         root_options: -v
         psr_version:  ${{ matrix.psr-version }}
         commit: true
-        push: ${{ matrix.psr-version == '8.7.2' }}
+        push: ${{ matrix.psr-version == '8.7.0' }}
     - name: Add file to check if it is added
       env: 
         tag: ${{ steps.release.outputs.tag }}
         released: ${{ steps.release.outputs.released }}
         version: ${{ steps.release.outputs.version }}
       run: mkdir -p dist && echo "Hello World !" >> dist/hello.txt
-    - name: Debug GITHUB_ACTION
-      run: |
-        ls -la
-        echo "test_variable=test" >> $GITHUB_ACTION
-        ls -la
-        echo "Content of $GITHUB_ACTION file:"
-        cat "$GITHUB_ACTION"
-        echo "Debug EOF"
     - name: Publish package to GitHub Release
       uses: python-semantic-release/upload-to-gh-release@main
       if: steps.release.outputs.released
